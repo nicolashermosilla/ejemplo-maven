@@ -44,7 +44,8 @@ pipeline {
                 }
             }
              stage("Test app") {
-                
+                steps {
+                    
                     sh "curl -X GET localhost:8081/rest/mscovid/test?msg=testing"
                     
                 }
