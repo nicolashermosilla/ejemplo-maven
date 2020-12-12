@@ -35,24 +35,13 @@ pipeline {
                 }
                 }
             }
-            stage("Run Jar") {
+            stage("Upload Nexus") {
                 steps {
                     
-                    sh "nohup bash mvnw spring-boot:run &"
-                    sh "sleep 10"
+                    nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/Users/nicolas/code/estudios/usach/unidad3/forks/ejemplo-maven/build/DevOpsUsach2020-0.0.1.jar']], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.2']]]
                     
                 }
             }
-             stage("Test app") {
-                steps {
-                    
-                    sh "curl -X GET localhost:8081/rest/mscovid/test?msg=testing"
-                    
-                }
-            }
-           
-           
-            
         }
     }
 
