@@ -30,7 +30,7 @@ pipeline {
              }
             stage("Upload Nexus") {
                 steps {
-                    nexusPublisher nexusInstanceId: 'nexus-remoto', nexusRepositoryId: 'test-repo', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.1']]]
+                    nexusPublisher nexusInstanceId: 'nexus-remoto', nexusRepositoryId: 'test-nexus', packages: [[$class: 'MavenPackage', mavenAssetList: [], mavenCoordinate: [artifactId: 'DevOpsUsach2020', groupId: 'com.devopsusach2020', packaging: 'jar', version: '0.0.2']]]
                 }
             }
         }
