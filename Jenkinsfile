@@ -6,25 +6,18 @@ pipeline {
                 steps {
                     
                     sh "./mvnw clean compile -e"
-                        
-                    
-                    
                 }
             }
             stage("Test") {
                 steps {
                    
                     sh "./mvnw clean test -e"
-                        
-                    
                 }
             }
             stage("Jar") {
                 steps {
                     
                     sh "./mvnw clean package -e"
-                        
-                    
                 }
             }
 
